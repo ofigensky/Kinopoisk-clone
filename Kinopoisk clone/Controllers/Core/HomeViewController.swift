@@ -33,6 +33,24 @@ class HomeViewController: UIViewController {
         
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        
+        configureNavBar()
+        
+    }
+    
+    private func configureNavBar() {
+        let logoBtn = UIButton(type: .custom)
+        logoBtn.frame = CGRect(x: 0.0, y: 0.0, width: 20, height: 20)
+        logoBtn.setImage(UIImage(named: "kinopoiskLogo"), for: .normal)
+        
+        let menuBarItem = UIBarButtonItem(customView: logoBtn)
+        let currWidth = menuBarItem.customView?.widthAnchor.constraint(equalToConstant: 200)
+        currWidth?.isActive = true
+        let currHeight = menuBarItem.customView?.heightAnchor.constraint(equalToConstant: 30)
+        currHeight?.isActive = true
+        self.navigationItem.leftBarButtonItem = menuBarItem
+        
+        navigationController?.navigationBar.tintColor = .label
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,6 +76,53 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        switch indexPath.section {
+        case Sections.NewMovies.rawValue:
+            
+            APICaller.shared.getNewMovies { result in
+                switch result {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+            
+        case Sections.PopularMovies.rawValue:
+            
+            APICaller.shared.getPopularMovies { result in
+                switch result {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.PopularTvShows.rawValue:
+            
+            APICaller.shared.getTrendingTvShows { result in
+                switch result {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.Upcoming.rawValue:
+            
+            APICaller.shared.getUpcomingMovies { result in
+                switch result {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        
+        default:
+            return UITableViewCell()
+        }
+        
         return cell
     }
     
@@ -79,6 +144,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let defaultOffset = view.safeAreaInsets.top
+        let offset = scrollView.contentOffset.y + defaultOffset
+        
+        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
     }
     
     

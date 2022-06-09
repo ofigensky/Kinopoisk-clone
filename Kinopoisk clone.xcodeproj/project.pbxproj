@@ -18,6 +18,7 @@
 		FA07EAAC285269BE00214E94 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = FA07EAAB285269BE00214E94 /* SDWebImage */; };
 		FA07EAAE285269BE00214E94 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA07EAAD285269BE00214E94 /* SDWebImageMapKit */; };
 		FA07EAB12852802700214E94 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EAB02852802700214E94 /* StringExtension.swift */; };
+		FA07EAB42852866200214E94 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA07EAB32852866200214E94 /* APICaller.swift */; };
 		FADB78EC2852146C00660E85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB78EB2852146C00660E85 /* AppDelegate.swift */; };
 		FADB78EE2852146C00660E85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB78ED2852146C00660E85 /* SceneDelegate.swift */; };
 		FADB78F52852146C00660E85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADB78F42852146C00660E85 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		FA07EAA628525E4E00214E94 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		FA07EAA82852666400214E94 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA07EAB02852802700214E94 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		FA07EAB32852866200214E94 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		FADB78E82852146C00660E85 /* Kinopoisk clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kinopoisk clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADB78EB2852146C00660E85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADB78ED2852146C00660E85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FA07EAB22852864A00214E94 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FA07EAB32852866200214E94 /* APICaller.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		FADB78DF2852146C00660E85 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +131,7 @@
 			children = (
 				FADB78EB2852146C00660E85 /* AppDelegate.swift */,
 				FADB78ED2852146C00660E85 /* SceneDelegate.swift */,
+				FA07EAB22852864A00214E94 /* Managers */,
 				FA07EAAF2852800E00214E94 /* Extensions */,
 				FA07EAA228525C5B00214E94 /* Models */,
 				FA07EAA528525E0800214E94 /* Views */,
@@ -216,6 +227,7 @@
 				FADB78EC2852146C00660E85 /* AppDelegate.swift in Sources */,
 				FA07EAA728525E4E00214E94 /* CollectionViewTableViewCell.swift in Sources */,
 				FA07EA9C2852264E00214E94 /* ProfileViewController.swift in Sources */,
+				FA07EAB42852866200214E94 /* APICaller.swift in Sources */,
 				FA07EAA92852666400214E94 /* MovieCollectionViewCell.swift in Sources */,
 				FA07EAA428525CB300214E94 /* Movie.swift in Sources */,
 				FA07EAB12852802700214E94 /* StringExtension.swift in Sources */,
