@@ -1,5 +1,5 @@
 //
-//  MainTabBarViewController.swift
+//  SearchViewController.swift
 //  Kinopoisk clone
 //
 //  Created by Gleb Glushok on 09.06.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTabBarViewController: UITabBarController {
+class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
