@@ -42,12 +42,8 @@ class MainTabBarViewController: UITabBarController {
         tabBarAppearance.stackedLayoutAppearance = tabBarItemAppearance
 
         tabBar.standardAppearance = tabBarAppearance
-        tabBar.scrollEdgeAppearance = tabBarAppearance
         setViewControllers([vc1, vc2, vc3, vc4], animated: true)
     }
-    
-
-    
 
 }
 
