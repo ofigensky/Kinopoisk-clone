@@ -75,8 +75,8 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let movie = movies[indexPath.row]
-        guard let movieName = movie.title ?? movie.media_type else {return}
-        
+        guard let movieName = movie.title ?? movie.original_title else {return}
+
         APICaller.shared.getMovie(with: movieName + " trailer") { [weak self] result in
             switch result {
             case .success(let videoElement):

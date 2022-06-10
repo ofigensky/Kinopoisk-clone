@@ -73,7 +73,7 @@ class MovieTableViewCell: UITableViewCell {
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model.posterURL)") else { return }
         
         moviePosterUIImageView.sd_setImage(with: url, completed: nil)
-        movieTitleLabel.text = model.movieName
+        movieTitleLabel.text = model.titleName
     }
     
     

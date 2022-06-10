@@ -9,10 +9,88 @@ import UIKit
 
 class MediaViewController: UIViewController {
 
+    private var movies: [Movie] = [Movie]()
+    
+    private let upcomingTable: UITableView = {
+        
+        let table = UITableView()
+        table.register(MovieTableViewCell.self, forCellReuseIdentifier: MovieTableViewCell.identifier)
+        return table
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .systemBackground
+        title = "Медиа"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        
+        view.addSubview(upcomingTable)
+        upcomingTable.delegate = self
+        upcomingTable.dataSource = self
+        fetchUpcoming()
+
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        upcomingTable.frame = view.bounds
+    }
+    
+    private func fetchUpcoming() {
+        APICaller.shared.getUpcomingMovies { [weak self] result in
+            switch result {
+            case .success(let movies):
+                self?.movies = movies
+                DispatchQueue.main.async {
+                    self?.upcomingTable.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                
+            }
+        }
+    }
+}
+
+extension MediaViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movies.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieTableViewCell.identifier, for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
+        
+        let movie = movies[indexPath.row]
+        cell.configure(with: MovieViewModel(titleName: movie.title ?? movie.original_title ?? "", posterURL: movie.poster_path ?? ""))
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let movie = movies[indexPath.row]
+        guard let movieName = movie.title ?? movie.original_title else {return}
+        
+        APICaller.shared.getMovie(with: movieName) { [weak self] result in
+            switch result {
+            case .success(let videoElement):
+                DispatchQueue.main.async {
+                    let vc = MoviePreviewViewController()
+                    vc.configure(with: MoviePreviewViewModel(title: movieName, youtubeView: videoElement, titleOverview: movie.overview ?? ""))
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
 

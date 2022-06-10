@@ -23,6 +23,8 @@
 		FA35E98E28533CE000C99458 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35E98D28533CE000C99458 /* MovieTableViewCell.swift */; };
 		FA35E99128533DC700C99458 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35E99028533DC700C99458 /* MovieViewModel.swift */; };
 		FA35E99328533DEF00C99458 /* MoviePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35E99228533DEF00C99458 /* MoviePreviewViewModel.swift */; };
+		FA35E9962853469F00C99458 /* MoviePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35E9952853469F00C99458 /* MoviePreviewViewController.swift */; };
+		FA35E99828534A3400C99458 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA35E99728534A3400C99458 /* SearchResultsViewController.swift */; };
 		FADB78EC2852146C00660E85 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB78EB2852146C00660E85 /* AppDelegate.swift */; };
 		FADB78EE2852146C00660E85 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADB78ED2852146C00660E85 /* SceneDelegate.swift */; };
 		FADB78F52852146C00660E85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADB78F42852146C00660E85 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		FA35E98D28533CE000C99458 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		FA35E99028533DC700C99458 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		FA35E99228533DEF00C99458 /* MoviePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewViewModel.swift; sourceTree = "<group>"; };
+		FA35E9952853469F00C99458 /* MoviePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewViewController.swift; sourceTree = "<group>"; };
+		FA35E99728534A3400C99458 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		FADB78E82852146C00660E85 /* Kinopoisk clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Kinopoisk clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADB78EB2852146C00660E85 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADB78ED2852146C00660E85 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,11 +72,11 @@
 		FA07EA9D2852266C00214E94 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				FA07EA93285224D300214E94 /* HomeViewController.swift */,
+				FA07EA972852253900214E94 /* MediaViewController.swift */,
+				FA07EA992852264400214E94 /* SearchViewController.swift */,
 				FA07EA912852192600214E94 /* MainTabBarViewController.swift */,
 				FA07EA9B2852264E00214E94 /* ProfileViewController.swift */,
-				FA07EA992852264400214E94 /* SearchViewController.swift */,
-				FA07EA972852253900214E94 /* MediaViewController.swift */,
-				FA07EA93285224D300214E94 /* HomeViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -80,6 +84,7 @@
 		FA07EA9E2852267500214E94 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA35E9942853465700C99458 /* General */,
 				FA07EA9D2852266C00214E94 /* Core */,
 			);
 			path = Controllers;
@@ -127,6 +132,15 @@
 				FA35E99228533DEF00C99458 /* MoviePreviewViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FA35E9942853465700C99458 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				FA35E9952853469F00C99458 /* MoviePreviewViewController.swift */,
+				FA35E99728534A3400C99458 /* SearchResultsViewController.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 		FADB78DF2852146C00660E85 = {
@@ -247,10 +261,12 @@
 				FA35E99328533DEF00C99458 /* MoviePreviewViewModel.swift in Sources */,
 				FA07EA982852253900214E94 /* MediaViewController.swift in Sources */,
 				FA07EA922852192600214E94 /* MainTabBarViewController.swift in Sources */,
+				FA35E99828534A3400C99458 /* SearchResultsViewController.swift in Sources */,
 				FADB78EC2852146C00660E85 /* AppDelegate.swift in Sources */,
 				FA07EAA728525E4E00214E94 /* CollectionViewTableViewCell.swift in Sources */,
 				FA07EA9C2852264E00214E94 /* ProfileViewController.swift in Sources */,
 				FA07EAB42852866200214E94 /* APICaller.swift in Sources */,
+				FA35E9962853469F00C99458 /* MoviePreviewViewController.swift in Sources */,
 				FA07EAA92852666400214E94 /* MovieCollectionViewCell.swift in Sources */,
 				FA35E99128533DC700C99458 /* MovieViewModel.swift in Sources */,
 				FA07EAA428525CB300214E94 /* Movie.swift in Sources */,
